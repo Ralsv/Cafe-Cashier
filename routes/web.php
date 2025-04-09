@@ -49,6 +49,7 @@ Route::get('produk/delete/{produk_id}', [ProdukController::class, 'delete'])->na
 Route::get('/produk/{produk_id}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
 Route::put('/produk/{produk_id}', [ProdukController::class, 'update'])->name('produk.update');
 
+
 // Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index'); // Menampilkan daftar produk
 // Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create'); // Menampilkan form tambah produk
 // Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store'); // Menyimpan produk baru

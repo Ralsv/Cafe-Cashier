@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    
+      
     <style>
         .button1 {
             position: relative;
@@ -121,6 +123,33 @@
                 .card {
                     background-color: #F9E0BB;
                 }
+
+                .input {
+            width: 100%;
+            height: 40px;
+            line-height: 28px;
+            padding: 0 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f3f3f4;
+            color: #0d0c22;
+            transition: .3s ease;
+            }
+
+            .input::placeholder {
+            color: #9e9ea7;
+            }
+
+            .input:focus, input:hover {
+            outline: none;
+            border-color: #676767;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+            }
+
+            
     </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

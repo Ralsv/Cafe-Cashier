@@ -9,11 +9,42 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
+        .button1 {
+            position: relative;
+            display: inline-block;
+            margin: 5px;
+            padding: 7px 15px;
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: white;
+            background: #397088;
+            cursor: pointer;
+            transition: ease-out 0.5s;
+            border: 2px solid #397088;
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 0 #397088;
+            }
+
+            .button1:hover {
+            color: white;
+            box-shadow: inset 0 -100px 0 0 #1c475a;
+            }
+
+            .button1:active {
+            transform: scale(0.9);
+            }
+
+        .th1 {
+                background-color: #884A39
+                color: white;
+            }
         .button4 {
                 position: relative;
                 display: inline-block;
                 margin: 5px;
-                padding: 7px 12px;
+                padding: 8px 16px;
                 text-align: center;
                 font-size: 15px;
                 letter-spacing: 1px;
@@ -35,6 +66,32 @@
                 .button4:active {
                 transform: scale(0.9);
                 }
+                .button3 {
+                position: relative;
+                display: inline-block;
+                margin: 5px;
+                padding: 7px 15px;
+                text-align: center;
+                font-size: 15px;
+                letter-spacing: 1px;
+                text-decoration: none;
+                color: white;
+                background: #BF3131;
+                cursor: pointer;
+                transition: ease-out 0.5s;
+                border: 2px solid #BF3131;
+                border-radius: 8px;
+                box-shadow: inset 0 0 0 0 #BF3131;
+                }
+
+                .button3:hover {
+                color: white;
+                box-shadow: inset 0 -100px 0 0 #881919;
+                }
+
+                .button3:active {
+                transform: scale(0.9);
+                }
     </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -44,7 +101,7 @@
                     <br>
                     <br>
     <table class="table table-bordered">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 
                 <th>Nama Produk</th>
@@ -61,9 +118,9 @@
                     <td>Rp {{ number_format($produk->harga, 3) }}</td>
                     <td>{{ $produk->stok }}</td>
                     <td class="align-middle">
-                        <div class="btn btn-group mx-1 space-x-4" role="group aria-label="Basic example">
-                        <a href="{{ route('produk.edit', ['produk_id'=>$produk->produk_id]) }}"><button class="btn btn-primary">Update</button></a> 
-                        <a href="{{ route('produk.delete', ['produk_id'=>$produk->produk_id]) }}"><button class="btn btn-danger">Delete</button></a>
+                        <div class="btn btn-group mx-1 space-x-2" role="group aria-label="Basic example">
+                        <a href="{{ route('produk.edit', ['produk_id'=>$produk->produk_id]) }}"><button class="button1">Update</button></a> 
+                        <a href="{{ route('produk.delete', ['produk_id'=>$produk->produk_id]) }}"><button class="button3">Delete</button></a>
                         </div>
                     </td>
                 </tr>
