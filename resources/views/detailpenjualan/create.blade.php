@@ -11,7 +11,7 @@
             position: relative;
             display: inline-block;
             margin: 5px;
-            padding: 7px 10px;
+            padding: 8px 16px;
             text-align: center;
             font-size: 15px;
             letter-spacing: 1px;
@@ -38,7 +38,7 @@
                 position: relative;
                 display: inline-block;
                 margin: 5px;
-                padding: 7px 10px;
+                padding: 8px 16px;
                 text-align: center;
                 font-size: 15px;
                 letter-spacing: 1px;
@@ -65,12 +65,9 @@
     <div class="container mt-5">
         <h1>Detail Penjualan :</h1>
         <h2>{{ $penjualan->nama_pelanggan }}</h2>
-        <br>
-        <br>
-        
         <form action="{{ route('detailpenjualan.store', $penjualan->penjualan_id) }}" method="POST">
             @csrf
-            <div class="form-group">
+            <div class="form-group my-4">
                 <label for="dp_produk_id">Pilih Produk</label>
                 <select class="form-control" id="dp_produk_id" name="dp_produk_id" required>
                     <option value="">-- Pilih Produk --</option>
@@ -79,11 +76,11 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group my-4">
                 <label for="jumlah_produk">Jumlah Produk</label>
                 <input type="number" class="form-control" id="jumlah_produk" name="jumlah_produk" required min="1">
             </div>
-            <div class="form-group">
+            <div class="form-group my-4">
                 <label for="total_harga">Total Harga</label>
                 <input type="number" class="form-control" id="total_harga" name="total_harga" required step="0.01" readonly>
             </div>

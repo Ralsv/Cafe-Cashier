@@ -41,7 +41,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <a href="{{ route('produk.create') }}" class="button4">Tambah Produk</a>
-
+                    <br>
+                    <br>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -60,7 +61,7 @@
                     <td>Rp {{ number_format($produk->harga, 3) }}</td>
                     <td>{{ $produk->stok }}</td>
                     <td class="align-middle">
-                        <div class="btn btn-group" role="group aria-label="Basic example">
+                        <div class="btn btn-group mx-1 space-x-4" role="group aria-label="Basic example">
                         <a href="{{ route('produk.edit', ['produk_id'=>$produk->produk_id]) }}"><button class="btn btn-primary">Update</button></a> 
                         <a href="{{ route('produk.delete', ['produk_id'=>$produk->produk_id]) }}"><button class="btn btn-danger">Delete</button></a>
                         </div>

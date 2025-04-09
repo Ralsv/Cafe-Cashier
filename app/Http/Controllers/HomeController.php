@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $penjualans = Penjualan::all();
+        $penjualans = Penjualan::paginate(6);
         return view('home', compact('penjualans'));
     }
 

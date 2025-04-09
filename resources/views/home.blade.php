@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home') }}
+            {{ __('Dashboard') }}
         </h2>
     </x-slot>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -96,7 +96,7 @@
                 position: relative;
                 display: inline-block;
                 margin: 5px;
-                padding: 7px 12px;
+                padding: 8px 16px;
                 text-align: center;
                 font-size: 15px;
                 letter-spacing: 1px;
@@ -126,15 +126,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <br>
-                    <br>
-                    <br>
                         <div class="row">
-                            @foreach($penjualans as $penjualan)
+                            @foreach($penjualans as $index => $penjualan)
                             <div class="col-md-4 col-6 mb-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $loop->iteration }}</h4>
+                                        <h4 class="card-title">{{ $penjualans->firstItem() + $index }}</h4>
                                         <h4 class="card-title">{{ $penjualan->nama_pelanggan }}</h4>
                                         <p class="card-text">{{ $penjualan->tanggal_penjualan }}</p>
                                         <a href="{{ route('detailpenjualan.show', $penjualan->penjualan_id) }}" class="button2">Detail</a>
@@ -145,6 +142,10 @@
                             </div>
                             @endforeach
                         </div>
+                        {{-- Menampilkan kontrol pagination --}}
+                        
+                            {{ $penjualans->links() }}
+                        
                         <br>
                         <br>
                         <br>
@@ -153,7 +154,7 @@
                         <br>
                         <br>
                         <!-- Form untuk menambahkan data pelanggan -->
-                        <form action="{{ route('penjualan.store') }}" method="POST" class="mb-4">
+                        <form action="{{ route('penjualan.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="nama_pelanggan">Nama Pelanggan</label>

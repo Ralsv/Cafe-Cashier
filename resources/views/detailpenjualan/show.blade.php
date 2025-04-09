@@ -41,7 +41,7 @@
                     <tr>
                         <td>{{ $detail->produk->nama_produk }}</td>
                         <td>{{ $detail->jumlah_produk }}</td>
-                        <td>{{ number_format($detail->total_harga, 4) }}</td>
+                        <td>{{ number_format($detail->total_harga, 3) }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -49,7 +49,7 @@
         <h4>Total Harga Semua Produk: {{ number_format($totalHarga, 3) }}</h4>
         <br>
         <br>
-        <a href="{{ url('/home') }}"><button><i class="fa-solid fa-arrow-left"></i></button></a>
+        {{-- <a href="{{ url('/home') }}"><button><i class="fa-solid fa-arrow-left"></i></button></a> --}}
         <button onclick="window.print()"><i class="fa fa-print"></i></button>
     </div>
     
