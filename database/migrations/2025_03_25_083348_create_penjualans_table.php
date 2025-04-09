@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('nama_pelanggan');
             $table->timestamps();
         });
+        
     }
-
+    
     /**
      * Reverse the migrations.
      */
