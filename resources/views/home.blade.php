@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
-    
-      
     <style>
         .button1 {
             position: relative;
@@ -171,10 +169,7 @@
                             </div>
                             @endforeach
                         </div>
-                        {{-- Menampilkan kontrol pagination --}}
-                        
-                            {{ $penjualans->links() }}
-                        
+                        {{ $penjualans->links() }}
                         <br>
                         <br>
                         <br>

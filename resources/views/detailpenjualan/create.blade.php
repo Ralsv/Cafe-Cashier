@@ -8,85 +8,90 @@
 </head>
 <style>
     .button1 {
-            position: relative;
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 16px;
-            text-align: center;
-            font-size: 15px;
-            letter-spacing: 1px;
-            text-decoration: none;
-            color: white;
-            background: #884A39;
-            cursor: pointer;
-            transition: ease-out 0.5s;
-            border: 2px solid #884A39;
-            border-radius: 8px;
-            box-shadow: inset 0 0 0 0 #884A39;
-            }
+        position: relative;
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: white;
+        background: #884A39;
+        cursor: pointer;
+        transition: ease-out 0.5s;
+        border: 2px solid #884A39;
+        border-radius: 8px;
+        box-shadow: inset 0 0 0 0 #884A39;
+    }
 
-            .button1:hover {
-            color: white;
-            box-shadow: inset 0 -100px 0 0 #67301f;
-            }
+    .button1:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #67301f;
+    }
 
-            .button1:active {
-            transform: scale(0.9);
-            }
+    .button1:active {
+        transform: scale(0.9);
+    }
 
-            .button3 {
-                position: relative;
-                display: inline-block;
-                margin: 5px;
-                padding: 8px 16px;
-                text-align: center;
-                font-size: 15px;
-                letter-spacing: 1px;
-                text-decoration: none;
-                color: white;
-                background: #BF3131;
-                cursor: pointer;
-                transition: ease-out 0.5s;
-                border: 2px solid #BF3131;
-                border-radius: 8px;
-                box-shadow: inset 0 0 0 0 #BF3131;
-                }
+    .button3 {
+        position: relative;
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 16px;
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: white;
+        background: #BF3131;
+        cursor: pointer;
+        transition: ease-out 0.5s;
+        border: 2px solid #BF3131;
+        border-radius: 8px;
+        box-shadow: inset 0 0 0 0 #BF3131;
+    }
 
-                .button3:hover {
-                color: white;
-                box-shadow: inset 0 -100px 0 0 #BF3131;
-                }
+    .button3:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #BF3131;
+    }
 
-                .button3:active {
-                transform: scale(0.9);
-                }
+    .button3:active {
+        transform: scale(0.9);
+    }
 </style>
+
 <body>
     <div class="container mt-5">
         <h1>Detail Penjualan :</h1>
         <h2>{{ $penjualan->nama_pelanggan }}</h2>
-        <form action="{{ route('detailpenjualan.store', $penjualan->penjualan_id) }}" method="POST">
+
+        <form action="{{ route('detailpenjualan.store', $penjualan->penjualan_id) }}" method="POST">        
             @csrf
             <div class="form-group my-4">
                 <label for="dp_produk_id">Pilih Produk</label>
                 <select class="form-control" id="dp_produk_id" name="dp_produk_id" required>
                     <option value="">-- Pilih Produk --</option>
-                    @foreach($produks as $produk)
-                        <option value="{{ $produk->produk_id }}" data-harga="{{ $produk->harga }}">{{ $produk->nama_produk }} - Rp {{ number_format($produk->harga, 3) }}</option>
+                    @foreach ($produks as $produk)
+                        <option value="{{ $produk->produk_id }}" data-harga="{{ $produk->harga }}">
+                            {{ $produk->nama_produk }} - Rp {{ number_format($produk->harga, 3) }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group my-4">
                 <label for="jumlah_produk">Jumlah Produk</label>
-                <input type="number" class="form-control" id="jumlah_produk" name="jumlah_produk" required min="1">
+                <input type="number" class="form-control" id="jumlah_produk" name="jumlah_produk" required
+                    min="1">
             </div>
             <div class="form-group my-4">
                 <label for="total_harga">Total Harga</label>
-                <input type="number" class="form-control" id="total_harga" name="total_harga" required step="0.01" readonly>
+                <input type="number" class="form-control" id="total_harga" name="total_harga" required step="0.01"
+                    readonly>
             </div>
             <button type="submit" class="button1">Tambah Detail Penjualan</button>
             <a href="{{ url('home') }}" class="button3">Kembali</a>
-            
+
         </form>
     </div>
 
@@ -101,13 +106,11 @@
                 const harga = parseFloat(selectedOption.getAttribute('data-harga')) || 0;
                 const jumlah = parseInt(jumlahInput.value) || 0;
                 const total = harga * jumlah;
-                totalHargaInput.value = total.toFixed(3); // Format total harga
+                totalHargaInput.value = total.toFixed(3); 
             }
 
-            // Event listener untuk menghitung total harga saat produk dipilih
             produkSelect.addEventListener('change', calculateTotal);
 
-            // Event listener untuk menghitung total harga saat jumlah produk diubah
             jumlahInput.addEventListener('input', calculateTotal);
         });
     </script>

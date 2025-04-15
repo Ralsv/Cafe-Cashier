@@ -9,7 +9,7 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $produks = Produk::all();
+        $produks = Produk::paginate(5);
         return view('produk.index', compact('produks'));
     }
 
@@ -44,8 +44,8 @@ class ProdukController extends Controller
     {
         $validation = $request->validate([
             'nama_produk' => 'required',
-            'harga' => 'required',
-            'stok' => 'required'
+            'harga' => 'required|numeric|min:0',
+            'stok' => 'required|integer|min:0'
         ]);
         $data = Produk::create($validation);   
         if ($data) {
@@ -79,25 +79,25 @@ class ProdukController extends Controller
 
     public function update(Request $request, $produk_id)
 {
-    // Validasi input
+    
     $request->validate([
         'nama_produk' => 'required|string|max:255',
-        'harga' => 'required|numeric',
+        'harga' => 'required|numeric|min:0',
         'stok' => 'required|integer|min:0'
         
     ]);
 
-    // Mengambil produk berdasarkan ID
+    
     $produk = Produk::findOrFail($produk_id);
 
-    // Memperbarui data produk
+    
     $produk->nama_produk = $request->nama_produk;
     $produk->harga = $request->harga;
     $produk->stok = $request->stok;
     
     $produk->save();
 
-    // Redirect kembali ke halaman daftar produk dengan pesan sukses
+    
     return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui!');
 }
 }
