@@ -43,7 +43,6 @@
             <div class="card overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 text-center">
                     <h1>Welcome To Cashier App</h1>
-                    
                     <br>
                     <a href="{{ route('home') }}"><button class="button1">Start</button></a>
                 </div>

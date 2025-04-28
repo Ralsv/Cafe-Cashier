@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Penjualan extends Model
 {
-    protected $table = 'penjualans'; // Nama tabel
-    protected $primaryKey = 'penjualan_id'; // Menentukan primary key
+    protected $table = 'penjualans'; 
+    protected $primaryKey = 'penjualan_id'; 
     public function detailPenjualans()
     {
         return $this->hasMany(DetailPenjualan::class, 'dp_penjualan_id', 'penjualan_id');

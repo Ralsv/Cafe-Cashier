@@ -177,7 +177,6 @@
                         <br>
                         <br>
                         <br>
-                        <!-- Form untuk menambahkan data pelanggan -->
                         <form action="{{ route('penjualan.store') }}" method="POST">
                             @csrf
                             <div class="form-group">

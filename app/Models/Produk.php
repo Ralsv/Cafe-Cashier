@@ -15,8 +15,8 @@ class Produk extends Model
 
     use HasFactory;
 
-    // Tambahkan kolom yang ingin diisi secara massal
-    protected $fillable = ['nama_produk', 'harga', 'stok']; // Pastikan semua kolom yang relevan ada di sini
+    
+    protected $fillable = ['nama_produk', 'harga', 'stok']; 
     
     public function detailPenjualans()
     {
